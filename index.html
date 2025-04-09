@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My ePortfolio</title>
+    <link id="theme" rel="stylesheet" href="css/theme1.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to My ePortfolio</h1>
+        <button onclick="switchTheme()">Switch Theme</button>
+    </header>
+
+    <nav>
+		<a href="index.html">Home</a>
+		<a href="personalinterest&hobbies.html">Personal Interest & Hobbies</a>
+		<a href="experiences.html">Experiences</a>
+		<a href="certificates.html">Certificates</a>
+		<a href="skills.html">Skills</a>
+		<a href="photogallery.html">Photo Gallery</a>
+    </nav>
+
+    <main>
+        <h2>About Me</h2>
+		<img src="images/home1.jpg" alt="My Profile" width="300">
+        <p>Hi, I'm Lee Jiew Guang, a full-time postgraduate student from UNIMAS. From this personal blog, you will learn more about my self, my education background, personal interest, hobby and my experiences.</p>
+		<img src="images/home2.jpg" alt="Bau image" width="500">
+		<p>I grew up in Bau (Sarawak), a beautiful place in Malaysia. It’s famous for its gold mining history, and I have many great memories there.</P>
+		<img src="images/home3.jpg" alt="Capricorn" width="500">
+		<p>Born on <strong>January 05, 2001</strong></P>
+		<p>Capricorns are the definition of ‘work hard, play hard.’ We’re ambitious, reliable, and maybe a little stubborn, but that’s just part of our charm!</P>
+
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 My ePortfolio</p>
+    </footer>
+
+    <script>
+		function switchTheme() {
+			let theme = document.getElementById('theme');
+			let newTheme = theme.href.includes("theme1.css") ? "css/theme2.css" : "css/theme1.css";
+
+			// Apply the new theme
+			theme.href = newTheme;
+
+			// Save theme choice in localStorage
+			localStorage.setItem("selectedTheme", newTheme);
+		}
+	
+		// Apply saved theme when the page loads
+		window.onload = function () {
+			let savedTheme = localStorage.getItem("selectedTheme");
+			if (savedTheme) {
+            document.getElementById('theme').href = savedTheme;
+        }
+	};
+</script>
+
+</body>
+</html>

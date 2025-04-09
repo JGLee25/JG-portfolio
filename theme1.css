@@ -1,0 +1,94 @@
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    text-align: center;
+}
+
+header {
+    background-color: #007bff;
+    color: white;
+    padding: 20px;
+}
+
+nav {
+    background: #ddd;
+    padding: 10px;
+}
+
+nav a {
+    margin: 10px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+main {
+    margin: 20px;
+    padding: 20px;
+    background: white;
+    border-radius: 5px;
+}
+
+/* Button Styling */
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* ---- 📌 NEW STYLES FOR LEFT-RIGHT ALTERNATING IMAGE-TEXT LAYOUT ---- */
+
+/* Section Styling */
+.section {
+    display: flex;
+    justify-content: center; /* Centers content */
+    margin-bottom: 40px; /* Space between sections */
+}
+
+/* Image & Text Container */
+.content {
+    display: flex;
+    flex-direction: column; /* Stack image & text */
+    align-items: center;
+    width: 40%; /* Control section width */
+	max-width: 400px;
+	background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Image Styling */
+.content img {
+    width: 100%; /* Make image fit container */
+    max-width: 400px; /* Limit max size */
+    border-radius: 10px;
+}
+
+/* Alternate Image Alignment */
+.left {
+    justify-content: flex-start;
+}
+
+.right {
+    justify-content: flex-end;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .content {
+        width: 80%; /* Adjust for smaller screens */
+    }
+}

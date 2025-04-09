@@ -1,0 +1,106 @@
+/* General Styling */
+body {
+    font-family: 'Courier New', monospace;
+    background: linear-gradient(120deg, #333, #111);
+    color: white;
+    text-align: center;
+    margin: 0;
+}
+
+/* Header */
+header {
+    background: #ff6600;
+    color: black;
+    padding: 25px;
+    text-align: center;
+    border-radius: 0px 0px 15px 15px;
+    font-size: 24px;
+}
+
+/* Navigation */
+nav {
+    background: #222;
+    padding: 15px;
+    text-align: center;
+    border-radius: 15px;
+}
+
+nav a {
+    color: orange;
+    margin: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    display: inline-block;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: white;
+    transform: scale(1.1);
+}
+
+/* Main Content */
+main {
+    background: #444;
+    padding: 30px;
+    border-radius: 15px;
+    margin: 30px;
+    box-shadow: 0px 4px 10px rgba(255, 165, 0, 0.5);
+}
+
+/* Buttons */
+button {
+    background-color: orange;
+    color: black;
+    border: none;
+    padding: 12px 18px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #cc5500;
+    transform: scale(1.1);
+}
+
+/* Section Styling */
+.section {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+/* Image & Text Container */
+.content {
+    background: #fff;
+    color: black;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 8px rgba(255, 165, 0, 0.3);
+    max-width: 400px;
+    width: 40%;
+}
+
+/* Image Styling */
+.content img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .content {
+        width: 80%;
+    }
+}

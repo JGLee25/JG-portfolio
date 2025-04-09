@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My ePortfolio</title>
+    <link id="theme" rel="stylesheet" href="css/theme1.css">
+</head>
+<body>
+    <header>
+        <h1>My ePortfolio</h1>
+        <button onclick="switchTheme()">Switch Theme</button>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="personalinterest&hobbies.html">Personal Interest & Hobbies</a>
+        <a href="experiences.html">Experiences</a>
+        <a href="certificates.html">Certificates</a>
+		<a href="skills.html">Skills</a>
+		<a href="photogallery.html">Photo Gallery</a>
+    </nav>
+
+    <main>
+        <h2>My Experiences</h2>
+		<img src="images/experience1.jpg" alt="Industry Traning" width="700">
+		<p><strong>Maybank Bau</strong></P>
+        <p>During my internship in the banking sector, I had the opportunity to work as a Customer Service Representative, where I gained valuable insights into the financial industry and developed essential customer service skills. My primary role was to assist customers with their inquiries, guide them through banking procedures, and ensure a smooth and efficient customer experience.</p>
+		<p>Key responsibilities included:</P>
+		<p>📌Handling customer inquiries regarding banking products and services.</p>
+		<p>📌Ensuring compliance with bank policies while addressing customer concerns.</P>
+		<p>📌Enhancing customer satisfaction by resolving issues efficiently and professionally.</p>
+		<p>Through this experience, I strengthened my communication and problem-solving skills while gaining first-hand exposure to <strong>banking operations, financial products, and customer relationship management</strong>. This internship reinforced my ability to work in a fast-paced environment and improved my understanding of the importance of customer service in the financial industry.</p>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 My ePortfolio</p>
+    </footer>
+
+    <script>
+		function switchTheme() {
+			let theme = document.getElementById('theme');
+			let newTheme = theme.href.includes("theme1.css") ? "css/theme2.css" : "css/theme1.css";
+
+			// Apply the new theme
+			theme.href = newTheme;
+
+			// Save theme choice in localStorage
+			localStorage.setItem("selectedTheme", newTheme);
+		}
+	
+		// Apply saved theme when the page loads
+		window.onload = function () {
+			let savedTheme = localStorage.getItem("selectedTheme");
+			if (savedTheme) {
+            document.getElementById('theme').href = savedTheme;
+        }
+	};
+</script>
+</body>
+</html>

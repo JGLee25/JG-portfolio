@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My ePortfolio</title>
+    <link id="theme" rel="stylesheet" href="css/theme1.css">
+</head>
+<body>
+    <header>
+        <h1>My ePortfolio</h1>
+        <button onclick="switchTheme()">Switch Theme</button>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="personalinterest&hobbies.html">Personal Interest & Hobbies</a>
+        <a href="experiences.html">Experiences</a>
+        <a href="certificates.html">Certificates</a>
+		<a href="skills.html">Skills</a>
+		<a href="photogallery.html">Photo Gallery</a>
+    </nav>
+
+    <main>
+		<h2>My Perosonal Interest & Hobbies</h2>
+		<img src="images/I&B1.jpg" alt="See the world" width="900">
+		
+		
+		<h2>Personal Interest</h2>
+        <p>Here is my interest on daily life and hobbies...</p>
+		
+		<div class="section left">
+			<div class="content">
+				<img src="images/I&B2.jpg" alt="Photography">
+				<h3>Photography</h3>
+				<p>I love capturing moments through photography, whether it's breathtaking landscapes, street photography, or spontaneous candid shots that tell a story.</p>
+			</div>
+		</div>
+		
+		<div class="section right">
+			<div class="content">
+				<img src="images/I&B3.jpg" alt="Bitcoin">
+				<h3>Bitcoin</h3>
+				<p>Blockchain and cryptocurrency fascinate me as they revolutionize the financial world, offering decentralization, security, and endless innovation.</p>
+			</div>
+		</div>
+		
+		<div class="section left">
+			<div class="content">
+				<img src="images/I&B4.jpg" alt="Trading & Stock Investing">
+				<h3>Trading & Stock Investing</h3>
+				<p>I enjoy analyzing market trends and making strategic investments in stocks, always seeking opportunities to grow wealth and financial stability.</p>
+			</div>
+		</div>
+		
+		
+		<h2>Hobbies</h2>
+		
+		<div class="section left">
+			<div class="content">
+				<img src="images/I&B5.jpg" alt="Traveling & Exploring New Cultures">
+				<h3>Traveling & Exploring New Cultures</h3>
+				<p>Traveling allows me to immerse myself in new cultures, meet diverse people, and experience the beauty of different places worldwide.</p>
+			</div>
+		</div>
+		
+		<div class="section right">
+			<div class="content">
+				<img src="images/I&B6.jpg" alt="Cycling">
+				<h3>Cycling</h3>
+				<p>Cycling is my way of staying active while enjoying the outdoors, whether it’s a casual ride or an adventurous long-distance journey.</p>
+			</div>
+		</div>
+		
+		<div class="section left">
+			<div class="content">
+				<img src="images/I&B7.jpg" alt="Reading Personal Growth Books">
+				<h3>Reading Personal Growth Books</h3>
+				<p>I believe in continuous self-improvement, and reading personal growth books helps me gain new perspectives, motivation, and valuable life skills.</p>
+			</div>
+		</div>
+		
+		<div class="section right">
+			<div class="content">
+				<img src="images/I&B8.jpg" alt="Video gaming">
+				<h3>Video gaming</h3>
+				<p>Gaming is my escape, where I enjoy exploring immersive worlds, strategizing with friends, and challenging myself with exciting gameplay.</p>
+			</div>
+		</div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 My ePortfolio</p>
+    </footer>
+
+    <script>
+		function switchTheme() {
+			let theme = document.getElementById('theme');
+			let newTheme = theme.href.includes("theme1.css") ? "css/theme2.css" : "css/theme1.css";
+
+			// Apply the new theme
+			theme.href = newTheme;
+
+			// Save theme choice in localStorage
+			localStorage.setItem("selectedTheme", newTheme);
+		}
+	
+		// Apply saved theme when the page loads
+		window.onload = function () {
+			let savedTheme = localStorage.getItem("selectedTheme");
+			if (savedTheme) {
+            document.getElementById('theme').href = savedTheme;
+        }
+	};
+</script>
+</body>
+</html>

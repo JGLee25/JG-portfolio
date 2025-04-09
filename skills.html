@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My ePortfolio</title>
+    <link id="theme" rel="stylesheet" href="css/theme1.css">
+</head>
+<body>
+    <header>
+        <h1>My ePortfolio</h1>
+        <button onclick="switchTheme()">Switch Theme</button>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="personalinterest&hobbies.html">Personal Interest & Hobbies</a>
+        <a href="experiences.html">Experiences</a>
+        <a href="certificates.html">Certificates</a>
+		<a href="skills.html">Skills</a>
+		<a href="photogallery.html">Photo Gallery</a>
+    </nav>
+
+    <main>
+    <h2>My Skills</h2>
+
+    <div class="section left">
+        <div class="content">
+            <img src="images/skill1.jpg" alt="Time management">
+            <h3>Time Management</h3>
+            <p>I effectively prioritize tasks, set realistic deadlines, and manage my workload efficiently to ensure timely completion of projects and assignments. I use scheduling tools and productivity techniques to stay organized and meet goals without compromising quality.</p>
+        </div>
+    </div>
+
+    <div class="section right">
+        <div class="content">
+            <img src="images/skill2.jpg" alt="Critical thinking">
+            <h3>Critical Thinking</h3>
+            <p>I analyze complex problems logically, evaluate different perspectives, and make well-informed decisions based on evidence. I approach challenges with a problem-solving mindset, breaking down issues into manageable parts to find effective solutions.</p>
+        </div>
+    </div>
+
+    <div class="section left">
+        <div class="content">
+            <img src="images/skill3.jpg" alt="Active listening">
+            <h3>Active Listening</h3>
+            <p>I actively engage in conversations by giving full attention to speakers, asking relevant questions, and providing thoughtful responses. I ensure clear understanding by summarizing key points and considering different viewpoints before forming conclusions.</p>
+        </div>
+    </div>
+</main>
+
+
+    <footer>
+        <p>&copy; 2025 My ePortfolio</p>
+    </footer>
+
+    <script>
+		function switchTheme() {
+			let theme = document.getElementById('theme');
+			let newTheme = theme.href.includes("theme1.css") ? "css/theme2.css" : "css/theme1.css";
+
+			// Apply the new theme
+			theme.href = newTheme;
+
+			// Save theme choice in localStorage
+			localStorage.setItem("selectedTheme", newTheme);
+		}
+	
+		// Apply saved theme when the page loads
+		window.onload = function () {
+			let savedTheme = localStorage.getItem("selectedTheme");
+			if (savedTheme) {
+            document.getElementById('theme').href = savedTheme;
+        }
+	};
+</script>
+</body>
+</html>

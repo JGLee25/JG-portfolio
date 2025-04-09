@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My ePortfolio</title>
+    <link id="theme" rel="stylesheet" href="css/theme1.css">
+</head>
+<body>
+    <header>
+        <h1>My ePortfolio</h1>
+        <button onclick="switchTheme()">Switch Theme</button>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="personalinterest&hobbies.html">Personal Interest & Hobbies</a>
+        <a href="experiences.html">Experiences</a>
+        <a href="certificates.html">Certificates</a>
+		<a href="skills.html">Skills</a>
+		<a href="photogallery.html">Photo Gallery</a>
+    </nav>
+
+    <main>
+    <h2>Academic Certificates</h2>
+
+    <div class="section left">
+        <div class="content">
+            <img src="images/SPM.png" alt="SPM">
+            <h3>Sijil Pelajaran Malaysia (SPM)</h3>
+            <p><strong>Institution: SMK Paku</strong></p>
+            <p><strong>Year: 2018</strong></p>
+            <p>Successfully completed secondary education with a strong foundation in core subjects, including Economics. Developed essential analytical, problem-solving, and communication skills during this period.</p>
+        </div>
+    </div>
+
+    <div class="section right">
+        <div class="content">
+            <img src="images/STPM.png" alt="STPM">
+            <h3>Sijil Tinggi Persekolahan Malaysia (STPM)</h3>
+            <p><strong>Institution: SMK Sebuku</strong></p>
+            <p><strong>Year: 2020</strong></p>
+			<p>Achieved pre-university certification with a focus on Business,and Economics. This qualification strengthened my critical thinking and research skills, preparing me for higher education.
+        </div>
+    </div>
+
+    <div class="section left">
+        <div class="content">
+            <img src="images/UNIMASDegree.png" alt="First Degree">
+            <h3>Bachelor Degree in Finance with Honour (UNIMAS)</h3>
+            <p><strong>Institution: Universiti Malaysia Sarawak (UNIMAS)</strong></p>
+			<p><strong>Year: 2024</strong></p>
+            <p>Earned a bachelor's degree in Finance, equipping me with industry-relevant knowledge and practical experience. My academic journey included participation in projects that enhanced my analytical, technical, and problem-solving abilities.</p>
+        </div>
+    </div>
+
+</main>
+
+
+    <footer>
+        <p>&copy; 2025 My ePortfolio</p>
+    </footer>
+
+    <script>
+		function switchTheme() {
+			let theme = document.getElementById('theme');
+			let newTheme = theme.href.includes("theme1.css") ? "css/theme2.css" : "css/theme1.css";
+
+			// Apply the new theme
+			theme.href = newTheme;
+
+			// Save theme choice in localStorage
+			localStorage.setItem("selectedTheme", newTheme);
+		}
+	
+		// Apply saved theme when the page loads
+		window.onload = function () {
+			let savedTheme = localStorage.getItem("selectedTheme");
+			if (savedTheme) {
+            document.getElementById('theme').href = savedTheme;
+        }
+	};
+</script>
+</body>
+</html>

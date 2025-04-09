@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Gallery</title>
+    <link id="theme" rel="stylesheet" href="css/theme1.css">
+    <style>
+        .doraemon-run {
+            position: relative;
+            height: 150px;
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+
+        .doraemon {
+            position: absolute;
+            bottom: 0;
+            width: 100px;
+            animation: runAcross 8s linear infinite;
+        }
+
+        @keyframes runAcross {
+            0% {
+                left: -100px;
+                transform: scaleX(1);
+            }
+            50% {
+                left: 100%;
+                transform: scaleX(1);
+            }
+            50.001% {
+                transform: scaleX(-1);
+            }
+            100% {
+                left: -100px;
+                transform: scaleX(-1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>My Event Photo Gallery</h1>
+        <button onclick="switchTheme()">Switch Theme</button>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="personalinterest&hobbies.html">Personal Interest & Hobbies</a>
+        <a href="experiences.html">Experiences</a>
+        <a href="certificates.html">Certificates</a>
+        <a href="skills.html">Skills</a>
+        <a href="photogallery.html">Photo Gallery</a>
+    </nav>
+
+    <main>
+        <!-- 🔊 Background Music -->
+        <audio id="bg-music" autoplay loop>
+            <source src="background_music/way_home.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+
+        <!-- Content Section -->
+        <h2>Money Matters: Building Wealth for Future’s Leaders</h2>
+        <p>This event was an unforgettable experience where I contributed to planning and execution as part of the logistics and technical team.</p>
+
+        <div class="gallery">
+            <img src="images/sulam1.jpg" alt="Event Photo 1">
+            <img src="images/sulam2.jpg" alt="Event Photo 2">
+        </div>
+
+        <h2>Dean's List Award Recipient</h2>
+        <p>I am honored to have been recognized on the Dean's List for outstanding academic achievement...</p>
+        <div class="gallery">
+            <img src="images/dean_list_archievement.jpg" alt="dean_list">
+        </div>
+
+        <h2>FEB Faculty Run Event</h2>
+        <p>I actively participated in the Faculty Run organized to promote a healthy lifestyle...</p>
+        <div class="gallery">
+            <img src="images/FEB_RUN.jpg" alt="feb_run">
+        </div>
+
+        <h2>Degree Graduation Ceremony – Bachelor of Finance with Honours</h2>
+        <p>I proudly graduated with a <strong>Bachelor of Finance with Honours</strong> from Universiti Malaysia Sarawak...</p>
+        <div class="gallery">
+            <img src="images/graduation_ceremony1.jpg" alt="graduation1">
+            <img src="images/graduation_ceremony2.jpg" alt="graduation2">
+        </div>
+
+        <h3>Sunrise Moment – A Reflection of New Beginnings</h3>
+        <p>This video captures a beautiful sunrise, symbolizing hope, growth, and new beginnings...</p>
+        <video controls width="500">
+            <source src="images/the_sunrise_UAE.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <h3>The Dubai Fountain – A Dance of Water, Light, and Music</h3>
+        <p>This video showcases the world-renowned Dubai Fountain, a stunning choreographed water show set on the Burj Khalifa Lake in Downtown Dubai. Set against the backdrop of the iconic Burj Khalifa, the fountain’s synchronized movements with music and light reflect the harmony of creativity, innovation, and engineering excellence. I included this video as a source of inspiration—a reminder of what can be achieved when art and technology come together beautifully.(this video was taken by my elder brother)</p></p>
+        <iframe id="dubaiVideo" width="560" height="315" 
+            src="https://www.youtube.com/embed/HVl31SBWUk0?enablejsapi=1" 
+            title="Dubai Fountain Show" frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+        </iframe>
+
+        <h3>Chinese New Year Celebration – Chap Goh Mei</h3>
+        <p>Although I was not directly involved in the activities, I had the opportunity to document the event as the video recorder. Capturing the vibrant atmosphere, traditional performances, and joyful moments during the Chap Goh Mei celebration allowed me to appreciate the cultural significance of the occasion and preserve the memories of this meaningful event.</p></p>
+        <iframe id="youtubeVideo" width="560" height="315" 
+            src="https://www.youtube.com/embed/iuzbQdspjeo?enablejsapi=1" 
+            title="YouTube video player" frameborder="0" 
+            allow="autoplay; encrypted-media" allowfullscreen>
+        </iframe>
+
+        <h3>Doraemon Running Across!</h3>
+        <div class="doraemon-run">
+            <img src="images/doraemon.png" alt="Doraemon" class="doraemon">
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 My ePortfolio</p>
+    </footer>
+
+    <!-- YouTube Player API -->
+    <script src="https://www.youtube.com/iframe_api"></script>
+
+    <script>
+        function switchTheme() {
+            let theme = document.getElementById('theme');
+            let newTheme = theme.href.includes("theme1.css") ? "css/theme2.css" : "css/theme1.css";
+            theme.href = newTheme;
+            localStorage.setItem("selectedTheme", newTheme);
+        }
+
+        window.onload = function () {
+            let savedTheme = localStorage.getItem("selectedTheme");
+            if (savedTheme) {
+                document.getElementById('theme').href = savedTheme;
+            }
+        };
+
+        // Background Music
+        const bgMusic = document.getElementById("bg-music");
+
+        window.addEventListener('load', function () {
+            bgMusic.play().catch(() => {
+                console.log("Autoplay blocked. Music will play after interaction.");
+            });
+        });
+
+        document.body.addEventListener("click", function () {
+            if (bgMusic.paused) bgMusic.play();
+        });
+
+        // YouTube Iframe API logic
+        let dubaiPlayer, otherPlayer;
+
+        function onYouTubeIframeAPIReady() {
+            dubaiPlayer = new YT.Player("dubaiVideo", {
+                events: {
+                    'onStateChange': onAnyYouTubeStateChange
+                }
+            });
+
+            otherPlayer = new YT.Player("youtubeVideo", {
+                events: {
+                    'onStateChange': onAnyYouTubeStateChange
+                }
+            });
+        }
+
+        function onAnyYouTubeStateChange(event) {
+            if (event.data === YT.PlayerState.PLAYING) {
+                bgMusic.pause();
+            } else if (event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.ENDED) {
+                bgMusic.play().catch(() => {});
+            }
+        }
+    </script>
+</body>
+</html>
